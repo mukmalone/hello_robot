@@ -7,10 +7,13 @@
   <material name="white">
     <color rgba="1 1 1 1"/>
   </material>
+  <material name="black">
+    <color rgba=".05 .05 .05 1"/>
+  </material>
   <link name="base_link">
     <visual>
       <geometry>
-        <box size="0.023 0.026 0.001"/>
+        <box size="0.23 0.26 0.01"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -19,14 +22,14 @@
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
     </collision>
     <inertial>
@@ -38,20 +41,20 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="left_front_wheel"/>
-    <origin rpy="0 0 0" xyz="0.007666666666666666 0.014624999999999999 -0.00325"/>
+    <origin rpy="0 0 0" xyz="0.07666666666666667 0.14625 -0.0325"/>
   </joint>
   <link name="left_rear_wheel">
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
     </collision>
     <inertial>
@@ -63,20 +66,20 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="left_rear_wheel"/>
-    <origin rpy="0 0 0" xyz="-0.007666666666666666 0.014624999999999999 -0.00325"/>
+    <origin rpy="0 0 0" xyz="-0.07666666666666667 0.14625 -0.0325"/>
   </joint>
   <link name="right_front_wheel">
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
     </collision>
     <inertial>
@@ -88,20 +91,20 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="right_front_wheel"/>
-    <origin rpy="0 0 0" xyz="0.007666666666666666 -0.014624999999999999 -0.00325"/>
+    <origin rpy="0 0 0" xyz="0.07666666666666667 -0.14625 -0.0325"/>
   </joint>
   <link name="right_rear_wheel">
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.00325" radius="0.00325"/>
+        <cylinder length="0.0325" radius="0.0325"/>
       </geometry>
     </collision>
     <inertial>
@@ -113,7 +116,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="right_rear_wheel"/>
-    <origin rpy="0 0 0" xyz="-0.007666666666666666 -0.014624999999999999 -0.00325"/>
+    <origin rpy="0 0 0" xyz="-0.07666666666666667 -0.14625 -0.0325"/>
   </joint>
 </robot>
 

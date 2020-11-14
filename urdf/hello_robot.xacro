@@ -1,16 +1,20 @@
 <?xml version="1.0"?>
 <robot name="hello_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:property name="baselen" value="0.023" />
-  <xacro:property name="basewidth" value="0.026" />
-  <xacro:property name="basethick" value="0.001" />
-  <xacro:property name="wheeldiam" value="0.0065" />
-  <xacro:property name="wheelwidth" value="0.00325" />
+  <xacro:property name="baselen" value="0.23" />
+  <xacro:property name="basewidth" value="0.26" />
+  <xacro:property name="basethick" value="0.01" />
+  <xacro:property name="wheeldiam" value="0.065" />
+  <xacro:property name="wheelwidth" value="0.0325" />
   <xacro:property name="pi" value="3.1415" />
   <xacro:property name="mass" value="1.45" />
 
   <material name="white">
     <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba=".05 .05 .05 1"/>
   </material>
 
   <xacro:macro name="default_inertial" params="mass">
