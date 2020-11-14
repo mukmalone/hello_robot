@@ -4,6 +4,9 @@ This repository hosts the source code for the ROS < hello_robot > package which 
 
 ![image info](./pictures/robotBase.png)
 
+
+![image info](./pictures/URDF.png)
+
 ## Key concepts covered ##
 - creating a URDF from scratch
 - using Xacro to clean up the URDF and parameterize the creation of the robot
