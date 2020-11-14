@@ -3,11 +3,11 @@
 
   <xacro:property name="baselen" value="0.023" />
   <xacro:property name="basewidth" value="0.026" />
-  <xacro:property name="basethick" value="0.005" />
+  <xacro:property name="basethick" value="0.001" />
   <xacro:property name="wheeldiam" value="0.0065" />
-  <xacro:property name="wheelwidth" value="0.0065" />
+  <xacro:property name="wheelwidth" value="0.00325" />
   <xacro:property name="pi" value="3.1415" />
-  <xacro:property name="mass" value="1" />
+  <xacro:property name="mass" value="1.45" />
 
   <material name="white">
     <color rgba="1 1 1 1"/>
@@ -29,8 +29,7 @@
     </visual>
   </link>
 
-  <xacro:macro name="wheel" params="prefix suffix reflect">
-
+  <xacro:macro name="wheel" params="prefix suffix reflectfrontback reflectside">
     <link name="${prefix}_${suffix}_wheel">
       <visual>
         <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
@@ -51,12 +50,13 @@
       <axis xyz="0 1 0" rpy="0 0 0" />
       <parent link="base_link"/>
       <child link="${prefix}_${suffix}_wheel"/>
-      <origin xyz="${baselen*reflect/3} ${.015} -${wheeldiam/2}" rpy="0 0 0"/>
+      <origin xyz="${baselen*reflectfrontback/3} ${((basewidth/2)+wheelwidth/2)*reflectside} ${-wheeldiam/2}" rpy="0 0 0"/>
     </joint>
-
   </xacro:macro>
 
-  <xacro:wheel prefix="left" suffix="front" reflect="1"/>
-  <xacro:wheel prefix="left" suffix="rear" reflect="-1"/>
+  <xacro:wheel prefix="left" suffix="front" reflectfrontback="1" reflectside="1"/>
+  <xacro:wheel prefix="left" suffix="rear" reflectfrontback="-1" reflectside="1"/>
+  <xacro:wheel prefix="right" suffix="front" reflectfrontback="1" reflectside="-1"/>
+  <xacro:wheel prefix="right" suffix="rear" reflectfrontback="-1" reflectside="-1"/>
 
 </robot>
