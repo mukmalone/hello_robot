@@ -17,6 +17,15 @@
       </geometry>
       <material name="white"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.23 0.26 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
   </link>
   <link name="left_front_wheel">
     <visual>
@@ -33,7 +42,7 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="1"/>
+      <mass value="0.1"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
@@ -43,7 +52,27 @@
     <child link="left_front_wheel"/>
     <origin rpy="0 0 0" xyz="0.07666666666666667 0.14625 -0.0325"/>
   </joint>
-  <link name="left_rear_wheel">
+  <!-- This block provides the simulator (Gazebo) with information on a few additional
+    physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
+  <gazebo reference="left_front_wheel">
+    <mu1 value="200.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- This block connects the wheel joint to an actuator (motor), which informs both
+    simulation and visualization of the robot -->
+  <transmission name="left_front_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="left_front_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="left_front_wheel_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <link name="left_back_wheel">
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
@@ -58,16 +87,36 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="1"/>
+      <mass value="0.1"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <joint name="left_rear_wheel_joint" type="continuous">
+  <joint name="left_back_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
-    <child link="left_rear_wheel"/>
+    <child link="left_back_wheel"/>
     <origin rpy="0 0 0" xyz="-0.07666666666666667 0.14625 -0.0325"/>
   </joint>
+  <!-- This block provides the simulator (Gazebo) with information on a few additional
+    physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
+  <gazebo reference="left_back_wheel">
+    <mu1 value="200.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- This block connects the wheel joint to an actuator (motor), which informs both
+    simulation and visualization of the robot -->
+  <transmission name="left_back_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="left_back_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="left_back_wheel_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
   <link name="right_front_wheel">
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
@@ -83,7 +132,7 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="1"/>
+      <mass value="0.1"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
@@ -93,7 +142,27 @@
     <child link="right_front_wheel"/>
     <origin rpy="0 0 0" xyz="0.07666666666666667 -0.14625 -0.0325"/>
   </joint>
-  <link name="right_rear_wheel">
+  <!-- This block provides the simulator (Gazebo) with information on a few additional
+    physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
+  <gazebo reference="right_front_wheel">
+    <mu1 value="200.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- This block connects the wheel joint to an actuator (motor), which informs both
+    simulation and visualization of the robot -->
+  <transmission name="right_front_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="right_front_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="right_front_wheel_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <link name="right_back_wheel">
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
@@ -108,15 +177,41 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="1"/>
+      <mass value="0.1"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <joint name="right_rear_wheel_joint" type="continuous">
+  <joint name="right_back_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
-    <child link="right_rear_wheel"/>
+    <child link="right_back_wheel"/>
     <origin rpy="0 0 0" xyz="-0.07666666666666667 -0.14625 -0.0325"/>
   </joint>
+  <!-- This block provides the simulator (Gazebo) with information on a few additional
+    physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
+  <gazebo reference="right_back_wheel">
+    <mu1 value="200.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- This block connects the wheel joint to an actuator (motor), which informs both
+    simulation and visualization of the robot -->
+  <transmission name="right_back_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="right_back_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="right_back_wheel_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <!-- Gazebo plugin for ROS Control -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 </robot>
 
