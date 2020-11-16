@@ -7,7 +7,6 @@
   <xacro:property name="wheeldiam" value="0.065" />
   <xacro:property name="wheelwidth" value="0.0325" />
   <xacro:property name="pi" value="3.1415" />
-  <xacro:property name="mass" value="1.45" />
 
   <material name="white">
     <color rgba="1 1 1 1"/>
@@ -36,7 +35,7 @@
         <box size="${baselen} ${basewidth} ${basethick}" />
       </geometry>
     </collision>
-    <xacro:default_inertial mass="10"/>
+    <xacro:default_inertial mass="1"/>
   </link>
 
   <xacro:macro name="wheel" params="prefix suffix reflectfrontback reflectside">
@@ -54,7 +53,7 @@
           <cylinder radius="${wheeldiam/2}" length="${wheelwidth}"/>
         </geometry>
       </collision>
-      <xacro:default_inertial mass="1"/>
+      <xacro:default_inertial mass="0.1"/>
     </link>
     <joint name="${prefix}_${suffix}_wheel_joint" type="continuous">
       <axis xyz="0 1 0" rpy="0 0 0" />
