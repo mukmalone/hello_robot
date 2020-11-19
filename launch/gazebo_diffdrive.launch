@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model" default="$(find hello_robot)/urdf/hello_robot.xacro"/>
+  <arg name="model" default="$(find hello_robot)/urdf/hello_robot.urdf.xacro"/>
   <arg name="rvizconfig" default="$(find hello_robot)/rviz/urdf.rviz" />
 
   <include file="$(find hello_robot)/launch/display_gazebo.launch">
