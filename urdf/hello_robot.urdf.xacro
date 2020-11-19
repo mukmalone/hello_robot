@@ -6,6 +6,11 @@
 
   <xacro:include filename="$(find ${package_name})/urdf/hello_robot.gazebo.xacro" />
   <xacro:include filename="$(find ${package_name})/urdf/include/common_macros.urdf.xacro" />
+  <xacro:include filename="$(find ${package_name})/urdf/include/common_sensors.xacro" />
+
+  <xacro:property name="sensor_yaml" value="$(find ${package_name})/config/sensors.yaml" />
+  <xacro:property name="sensor_prop" value="${load_yaml(sensor_yaml)}"/>
+
 
   <xacro:property name="baselen" value="0.24" />
   <xacro:property name="basewidth" value="0.15" />
@@ -44,5 +49,10 @@
   <xacro:wheel prefix="left" suffix="back" reflectfrontback="-1" reflectside="1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
   <xacro:wheel prefix="right" suffix="front" reflectfrontback="1" reflectside="-1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
   <xacro:wheel prefix="right" suffix="back" reflectfrontback="-1" reflectside="-1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
+
+  <!-- Sensors -->
+  <xacro:gpu_laser prefix="rplidar" parent_link="base_link"
+                   sensor_prop="${sensor_prop}"> 
+  </xacro:gpu_laser>
 
 </robot>
