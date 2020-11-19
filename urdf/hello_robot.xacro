@@ -14,6 +14,13 @@
   <xacro:property name="wheelwidth" value="0.037" />
   <xacro:property name="pi" value="3.1415" />
 
+  <link name="base_footprint" />
+  <!-- Joint to connect base_footprint with base_link -->
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="0 0 ${-wheeldiam}" rpy="0 0 0" />
+  </joint>
 
   <link name="base_link">
     <visual>
@@ -32,15 +39,6 @@
     o_xyz="0.0 0.0 0.0" o_rpy="0.0 0.0 0.0"
     />
   </link>
-
-  <link name="base_footprint" />
-
-  <!-- Joint to connect base_footprint with base_link -->
-  <joint name="base_footprint_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link" />
-    <origin xyz="0 0 ${-wheeldiam}" rpy="0 0 0" />
-  </joint>
 
   <xacro:wheel prefix="left" suffix="front" reflectfrontback="1" reflectside="1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
   <xacro:wheel prefix="left" suffix="back" reflectfrontback="-1" reflectside="1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
