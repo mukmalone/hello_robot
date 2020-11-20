@@ -17,14 +17,17 @@
   <xacro:property name="basethick" value="0.003" />
   <xacro:property name="wheeldiam" value="0.056" />
   <xacro:property name="wheelwidth" value="0.037" />
-  <xacro:property name="pi" value="3.1415" />
+  <xacro:property name="wheel_x_pos" value="0.10" />
+  <xacro:property name="wheel_y_pos" value="${basewidth/2+.035}" />
+  <xacro:property name="wheel_z_pos" value="${-((basethick/2)+(wheeldiam/2)+.01)}" />
+  <xacro:property name="pi" value="3.1415926535" />
 
   <link name="base_footprint" />
   <!-- Joint to connect base_footprint with base_link -->
   <joint name="base_footprint_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link" />
-    <origin xyz="0 0 ${-wheeldiam}" rpy="0 0 0" />
+    <origin xyz="0 0 ${(wheeldiam/2)+(-wheel_z_pos)}" rpy="0 0 0" />
   </joint>
 
   <link name="base_link">
@@ -45,10 +48,10 @@
     />
   </link>
 
-  <xacro:wheel prefix="left" suffix="front" reflectfrontback="1" reflectside="1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
-  <xacro:wheel prefix="left" suffix="back" reflectfrontback="-1" reflectside="1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
-  <xacro:wheel prefix="right" suffix="front" reflectfrontback="1" reflectside="-1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
-  <xacro:wheel prefix="right" suffix="back" reflectfrontback="-1" reflectside="-1" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" />
+  <xacro:wheel prefix="left" suffix="front" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${wheel_x_pos}" y_pos="${wheel_y_pos}" z_pos="${wheel_z_pos}"/>
+  <xacro:wheel prefix="left" suffix="back" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${-wheel_x_pos}" y_pos="${wheel_y_pos}" z_pos="${wheel_z_pos}"/>
+  <xacro:wheel prefix="right" suffix="front" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${wheel_x_pos}" y_pos="${-wheel_y_pos}" z_pos="${wheel_z_pos}"/>
+  <xacro:wheel prefix="right" suffix="back" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${-wheel_x_pos}" y_pos="${-wheel_y_pos}" z_pos="${wheel_z_pos}"/>
 
   <!-- Sensors -->
   <xacro:gpu_laser prefix="rplidar" parent_link="base_link"

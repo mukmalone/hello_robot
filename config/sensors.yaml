@@ -8,5 +8,5 @@ gpu_laser:
   dy: 0.0
   dz: 0.04
   angular_range:
-    min: -3.1415
-    max: 3.1415
+    min: -1.1415
+    max: 1.1415
