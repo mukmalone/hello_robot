@@ -4,9 +4,9 @@
   <xacro:property name="package_name" value="hello_robot" />
   <xacro:property name="robot_name" value="hello_robot" />
 
-  <xacro:include filename="$(find ${package_name})/urdf/hello_robot.gazebo.xacro" />
-  <xacro:include filename="$(find ${package_name})/urdf/include/common_macros.urdf.xacro" />
-  <xacro:include filename="$(find ${package_name})/urdf/include/common_sensors.xacro" />
+  <xacro:include filename="$(find ${package_name})/description/hello_robot.gazebo.xacro" />
+  <xacro:include filename="$(find ${package_name})/description/include/common_macros.urdf.xacro" />
+  <xacro:include filename="$(find ${package_name})/description/include/common_sensors.xacro" />
 
   <xacro:property name="sensor_yaml" value="$(find ${package_name})/config/sensors.yaml" />
   <xacro:property name="sensor_prop" value="${load_yaml(sensor_yaml)}"/>

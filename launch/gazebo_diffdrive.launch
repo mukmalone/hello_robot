@@ -1,6 +1,6 @@
 <launch>
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="model" default="$(find hello_robot)/urdf/hello_robot.urdf.xacro"/>
+  <arg name="model" default="$(find hello_robot)/description/hello_robot.urdf.xacro"/>
   <arg name="rvizconfig" default="$(find hello_robot)/rviz/urdf.rviz" />
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
