@@ -6,7 +6,7 @@ gpu_laser:
   #mesh: ''
   dx: 0.0
   dy: 0.0
-  dz: 0.0
+  dz: 0.07
   angular_range:
     min: -1.1415
     max: 1.1415
