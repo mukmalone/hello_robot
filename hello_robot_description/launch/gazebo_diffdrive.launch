@@ -1,7 +1,7 @@
 <launch>
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="model" default="$(find hello_robot)/description/hello_robot.urdf.xacro"/>
-  <arg name="rvizconfig" default="$(find hello_robot)/rviz/urdf.rviz" />
+  <arg name="model" default="$(find hello_robot_description)/urdf/hello_robot.urdf.xacro"/>
+  <arg name="rvizconfig" default="$(find hello_robot_description)/rviz/urdf.rviz" />
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
@@ -19,6 +19,8 @@
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
         args="-z 1.0 -unpause -urdf -model robot -param robot_description" respawn="false" output="screen" />
@@ -28,19 +30,19 @@
   </node>
 
   <rosparam command="load"
-            file="$(find hello_robot)/config/joints.yaml"
-            ns="hellorobot_joint_state_controller" />
+            file="$(find hello_robot_description)/config/joints.yaml"
+            ns="hello_robot_joint_state_controller" />
   <rosparam command="load"
-            file="$(find hello_robot)/config/diffdrive.yaml"
-            ns="hellorobot_diff_drive_controller" />
+            file="$(find hello_robot_description)/config/diffdrive.yaml"
+            ns="hello_robot_diff_drive_controller" />
 
-  <node name="hellorobot_controller_spawner" pkg="controller_manager" type="spawner"
-    args="hellorobot_joint_state_controller
-          hellorobot_diff_drive_controller
+  <node name="hello_robot_controller_spawner" pkg="controller_manager" type="spawner"
+    args="hello_robot_joint_state_controller
+          hello_robot_diff_drive_controller
           --shutdown-timeout 3"/>
 
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-    <param name="default_topic" value="/hellorobot_diff_drive_controller/cmd_vel"/>
+    <param name="default_topic" value="/hello_robot_diff_drive_controller/cmd_vel"/>
   </node>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  
 </launch>
