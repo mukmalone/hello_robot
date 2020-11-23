@@ -1,0 +1,11 @@
+<launch>
+    <node pkg="/hello_robot/scan" type="sensor_msgs/LaserScan" name="sensor_node_name" output="screen">
+        <param name="sensor_param" value="param_value" />
+    </node>
+    <node pkg="/hello_robot_diff_drive_controller/odom" type="nav_msgs/Odometry" name="odom_node" output="screen">
+        <param name="odom_param" value="param_value" />
+    </node>
+    <node pkg="/tf" type="tf/tfMessage" name="transform_configuration_name" output="screen">
+        <param name="transform_configuration_param" value="param_value" />
+    </node>
+</launch> 
