@@ -8,8 +8,15 @@ Below is the picture of the base that I will be building the URDF for.  The goal
 
 The actual robot will have a RPLIDAR A1 laser senor and mecancum wheels.
 
+### Physical Robot ###
+
+![image info](./pictures/base_assembly.png)
+
+![image info](./pictures/wiring.png)
+
 ![image info](./pictures/robotBase.png)
 
+### Simulation ###
 
 ![image info](./pictures/URDF.png)
 
