@@ -4,7 +4,7 @@
   <!-- Gazebo plugin for ROS Control -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/hello_robot</robotNamespace>
+      <robotNamespace>/</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>

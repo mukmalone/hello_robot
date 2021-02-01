@@ -16,7 +16,7 @@
 
   <!-- load rqt steering node -->
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-    <param name="default_topic" value="/hello_robot_diff_drive_controller/cmd_vel"/>
+    <param name="default_topic" value="/hello_robot_velocity_controller/cmd_vel"/>
   </node>
 
 </launch>
