@@ -2,7 +2,7 @@
 
   <arg name="model" default="$(find hello_robot_description)/urdf/hello_robot.urdf.xacro"/>
   <arg name="gui" default="true" />
-  <arg name="rvizconfig" default="$(find hello_robot_description)/rviz/urdf.rviz" />
+  <arg name="rvizconfig" default="$(find hello_robot_description)/config/urdf.rviz" />
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 

@@ -1,0 +1,22 @@
+<launch>
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam command="load"
+            file="$(find hello_robot_control)/config/hello_robot_control.yaml" />
+
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" 
+        args="hello_robot_joint_publisher
+              hello_robot_velocity_controller"/>
+
+    <!-- load robot_state_publisher and remap joint-state-publisher -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher"
+        respawn="false" output="screen"/>        
+
+  <!-- load rqt steering node -->
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/hello_robot_diff_drive_controller/cmd_vel"/>
+  </node>
+
+</launch>
