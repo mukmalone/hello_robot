@@ -1,0 +1,18 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="slam_method" default="gmapping" doc="slam type [gmapping, cartographer, hector, karto, frontier_exploration]"/>
+  <!-- The lua scripts are required for cartographer -->
+  <arg name="configuration_basename" default="hello_robot_lds_2d.lua"/>
+  <arg name="open_rviz" default="true"/>
+
+  <!-- SLAM: Gmapping, Cartographer, Hector, Karto, Frontier_exploration, RTAB-Map -->
+  <include file="$(find hello_robot_slam)/launch/hello_robot_$(arg slam_method).launch">
+    <arg name="configuration_basename" value="$(arg configuration_basename)"/>
+  </include>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find hello_robot_slam)/rviz/hello_robot_$(arg slam_method).rviz"/>
+  </group>
+</launch>

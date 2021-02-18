@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hello_robot_slam</name>
+  <version>0.0.0</version>
+  <description>The hello_robot_slam package</description>
+
+  <maintainer email="michael.muldoon.home@gmail.com">michael muldoon</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+</package>
