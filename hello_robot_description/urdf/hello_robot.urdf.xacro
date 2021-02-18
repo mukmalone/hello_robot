@@ -4,13 +4,12 @@
   <xacro:property name="package_name" value="hello_robot_description" />
   <xacro:property name="robot_name" value="hello_robot" />
 
-  <xacro:include filename="$(find ${package_name})/urdf/hello_robot.gazebo.xacro" />
   <xacro:include filename="$(find ${package_name})/urdf/include/common_macros.urdf.xacro" />
   <xacro:include filename="$(find ${package_name})/urdf/include/common_sensors.xacro" />
+  <xacro:include filename="$(find ${package_name})/urdf/hello_robot.gazebo.xacro" />
 
   <xacro:property name="sensor_yaml" value="$(find ${package_name})/config/sensors.yaml" />
   <xacro:property name="sensor_prop" value="${load_yaml(sensor_yaml)}"/>
-
 
   <xacro:property name="baselen" value="0.260" />
   <xacro:property name="basewidth" value="0.152" />
