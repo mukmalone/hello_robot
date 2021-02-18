@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-18T00:03:24.420Z" agent="5.0 (X11)" etag="WRRna7DgDnlgpBdFfR-_" version="14.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-18T00:04:11.572Z" agent="5.0 (X11)" etag="kKqy7VXj73oO3Z7Ryhqw" version="14.4.0" type="github">
   <diagram id="GddCDM5jnQ_dlsErp8QU" name="Page-1">
     <mxGraphModel dx="1117" dy="1053" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -156,6 +156,9 @@
         </mxCell>
         <mxCell id="RTTls062UUNZIikZmeOY-57" value="hello_robot_controll.launch" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="570" y="1440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RTTls062UUNZIikZmeOY-62" value="&lt;div&gt;TESTED:&amp;nbsp;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;All controllers load&lt;/li&gt;&lt;li&gt;Robot moves&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1270" width="150" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
