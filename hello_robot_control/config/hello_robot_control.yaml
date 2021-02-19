@@ -19,9 +19,10 @@ hello_robot:
     left_wheel: ['left_front_wheel_joint', 'left_back_wheel_joint']
     right_wheel: ['right_front_wheel_joint', 'right_back_wheel_joint']
 
-    wheel_separation : 0.15
-    wheel_radius : 0.0325
-    
+    # Wheel separation and radius multipliers
+    wheel_separation_multiplier: 1.875 # default: 1.0
+    wheel_radius_multiplier    : 1.0 # default: 1.0
+
     pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
     twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
 
