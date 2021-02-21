@@ -44,6 +44,8 @@ The actual robot will have a RPLIDAR A1 laser senor and mecancum wheels.
 - in one terminal `roslaunch hello_robot_gazebo hello_robot_world.launch`
 - in 2nd terminal `roslaunch hello_robot_navigation hello_robot_navigation.launch`
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/5LuyBR_MqcY/0.jpg)](https://youtu.be/5LuyBR_MqcY "ROS SLAM GMapping & Navigation Implementation")
+
 ### Physical Robot ###
 
 ![image info](./pictures/base_assembly.png)
