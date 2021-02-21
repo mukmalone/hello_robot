@@ -3,7 +3,7 @@
   <arg name="map_file" default="$(find hello_robot_navigation)/maps/map.yaml"/>
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
-  <arg name="local_planner" default="dwa" doc="Local planner can be either dwa, base, teb or pose"/>
+  <arg name="local_planner" default="teb" doc="Local planner can be either dwa, base, teb or pose"/>
 
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
