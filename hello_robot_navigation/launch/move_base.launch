@@ -4,6 +4,7 @@
   <arg name="odom_topic" default="/hello_robot/mobile_base_controller/odom" />
   <arg name="local_planner" default="dwa" doc="Local planner can be either dwa, dwb, base, teb or pose"/>
   <arg name="move_forward_only" default="false"/>
+  <arg name="with_virtual_walls" default="false" doc="Enables usage of virtual walls when set. Set to false when running SLAM." />
 
   <!-- move_base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
@@ -14,9 +15,11 @@
     <!-- global costmap params -->
     <rosparam file="$(find hello_robot_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find hello_robot_navigation)/config/costmap_global_params.yaml" command="load" />
+    <rosparam file="$(find hello_robot_navigation)/config/costmap_global_params_plugins_virtual_walls.yaml" command="load" if="$(arg with_virtual_walls)" />
     <!-- local costmap params -->
     <rosparam file="$(find hello_robot_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find hello_robot_navigation)/config/costmap_local_params.yaml" command="load" />
+    <rosparam file="$(find hello_robot_navigation)/config/costmap_local_params_plugins_no_virtual_walls.yaml" command="load" unless="$(arg with_virtual_walls)" />
     <!-- remappings -->
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>
