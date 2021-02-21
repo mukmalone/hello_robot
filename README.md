@@ -20,14 +20,6 @@ The actual robot will have a RPLIDAR A1 laser senor and mecancum wheels.
 - tuning parameters
 - building physical robot
 
-### Physical Robot ###
-
-![image info](./pictures/base_assembly.png)
-
-![image info](./pictures/wiring.png)
-
-![image info](./pictures/robotBase.png)
-
 ### Simulation ###
 
 ![image info](./pictures/URDF.png)
@@ -52,7 +44,10 @@ The actual robot will have a RPLIDAR A1 laser senor and mecancum wheels.
 - in one terminal `roslaunch hello_robot_gazebo hello_robot_world.launch`
 - in 2nd terminal `roslaunch hello_robot_navigation hello_robot_navigation.launch`
 
+### Physical Robot ###
 
+![image info](./pictures/base_assembly.png)
 
+![image info](./pictures/wiring.png)
 
-
+![image info](./pictures/robotBase.png)
