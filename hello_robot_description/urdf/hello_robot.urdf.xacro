@@ -20,6 +20,7 @@
   <xacro:property name="wheel_y_pos" value="${wheelwidth/2+basewidth/2+.013}" />
   <xacro:property name="wheel_z_pos" value="${-((basethick/2)+(wheeldiam/2)+.007)}" />
   <xacro:property name="pi" value="3.1415926535" />
+  <xacro:property name="collision_inflation" value="1.1" />
 
   <link name="base_footprint" />
   <!-- Joint to connect base_footprint with base_link -->
@@ -38,7 +39,7 @@
     </visual>
     <collision>
       <geometry>
-        <box size="${baselen} ${basewidth} ${basethick}" />
+        <box size="${baselen*collision_inflation} ${basewidth*collision_inflation} ${basethick*collision_inflation}" />
       </geometry>
     </collision>
     <xacro:base_inertia m="1.065" 
@@ -47,10 +48,10 @@
     />
   </link>
 
-  <xacro:wheel prefix="left" suffix="front" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${wheel_x_pos-.057}" y_pos="${wheel_y_pos}" z_pos="${wheel_z_pos}"/>
-  <xacro:wheel prefix="left" suffix="back" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${-wheel_x_pos+.042}" y_pos="${wheel_y_pos}" z_pos="${wheel_z_pos}"/>
-  <xacro:wheel prefix="right" suffix="front" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${wheel_x_pos-.057}" y_pos="${-wheel_y_pos}" z_pos="${wheel_z_pos}"/>
-  <xacro:wheel prefix="right" suffix="back" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${-wheel_x_pos+.042}" y_pos="${-wheel_y_pos}" z_pos="${wheel_z_pos}"/>
+  <xacro:wheel prefix="left" suffix="front" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${wheel_x_pos-.057}" y_pos="${wheel_y_pos}" z_pos="${wheel_z_pos}" collision_inflation="${collision_inflation}"/>
+  <xacro:wheel prefix="left" suffix="back" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${-wheel_x_pos+.042}" y_pos="${wheel_y_pos}" z_pos="${wheel_z_pos}" collision_inflation="${collision_inflation}"/>
+  <xacro:wheel prefix="right" suffix="front" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${wheel_x_pos-.057}" y_pos="${-wheel_y_pos}" z_pos="${wheel_z_pos}" collision_inflation="${collision_inflation}"/>
+  <xacro:wheel prefix="right" suffix="back" m="0.087" r="${wheeldiam/2}" l="${wheelwidth}" x_pos="${-wheel_x_pos+.042}" y_pos="${-wheel_y_pos}" z_pos="${wheel_z_pos}" collision_inflation="${collision_inflation}"/>
 
   <!-- Sensors -->
   <xacro:gpu_laser prefix="rplidar" parent_link="base_link"

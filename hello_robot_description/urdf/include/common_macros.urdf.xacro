@@ -17,7 +17,7 @@
   - z_pos [float]: moves wheel up or down from the origin of the base
   -->
 
-  <xacro:macro name="wheel" params="prefix suffix m r l x_pos y_pos z_pos">
+  <xacro:macro name="wheel" params="prefix suffix m r l x_pos y_pos z_pos collision_inflation">
     <link name="${prefix}_${suffix}_wheel">
       <visual>
           <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
@@ -29,11 +29,11 @@
       <collision>
           <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
           <geometry>
-          <cylinder radius="${r}" length="${l}"/>
+          <cylinder radius="${r*collision_inflation}" length="${l*collision_inflation}"/>
           </geometry>
       </collision>
       <xacro:cylinder_inertia m="${m}" r="${r}" l="${l}" 
-        o_xyz="0.0 0.0 0.0" o_rpy="0.0 0.0 0.0"
+        o_xyz="0.0 0.0 0.0" o_rpy="${pi/2} 0.0 0.0"
       />
     </link>
       <joint name="${prefix}_${suffix}_wheel_joint" type="continuous">
@@ -48,9 +48,10 @@
       physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
       <gazebo reference="${prefix}_${suffix}_wheel">
         <mu1 value="200.0"/>
-        <mu2 value="100.0"/>
+        <mu2 value="200.0"/>
         <kp value="10000000.0" />
         <kd value="1.0" />
+        <minDepth>0.08</minDepth>
         <material>Gazebo/Grey</material>
       </gazebo>
 

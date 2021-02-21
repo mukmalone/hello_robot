@@ -97,7 +97,7 @@ Visualization Manager:
           Show Trail: false
           Value: true
       Name: RobotModel
-      Robot Description: robot_description
+      Robot Description: hello_robot/robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
