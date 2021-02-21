@@ -20,17 +20,6 @@ The actual robot will have a RPLIDAR A1 laser senor and mecancum wheels.
 - tuning parameters
 - building physical robot
 
-### Simulation ###
-
-![image info](./pictures/URDF.png)
-
-
-![image info](./pictures/Rviz.png)
-
-![image info](./pictures/gazebo.png)
-
-![image info](./pictures/drivingRobot.gif)
-
 ### Usage ###
 #### View hello_robot in RVIZ ####
 - `roslaunch hello_robot_description hello_robot_rviz.launch`
@@ -44,7 +33,20 @@ The actual robot will have a RPLIDAR A1 laser senor and mecancum wheels.
 - in one terminal `roslaunch hello_robot_gazebo hello_robot_world.launch`
 - in 2nd terminal `roslaunch hello_robot_navigation hello_robot_navigation.launch`
 
+Very quick video showing the SLAM and Navigation working.
+
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/5LuyBR_MqcY/0.jpg)](https://youtu.be/5LuyBR_MqcY "ROS SLAM GMapping & Navigation Implementation")
+
+### Simulation ###
+
+![image info](./pictures/URDF.png)
+
+
+![image info](./pictures/Rviz.png)
+
+![image info](./pictures/gazebo.png)
+
+![image info](./pictures/drivingRobot.gif)
 
 ### Physical Robot ###
 
