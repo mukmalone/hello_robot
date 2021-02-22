@@ -26,10 +26,10 @@
     <param name="odom_alpha2"               value="0.01"/>
     <param name="odom_alpha3"               value="0.01"/>
     <param name="odom_alpha4"               value="0.02"/>
-    <param name="laser_z_hit"               value="0.5"/>
+    <param name="laser_z_hit"               value="1.0"/>
     <param name="laser_z_short"             value="0.05"/>
     <param name="laser_z_max"               value="0.05"/>
-    <param name="laser_z_rand"              value="0.5"/>
+    <param name="laser_z_rand"              value="1.0"/>
     <param name="laser_sigma_hit"           value="0.2"/>
     <param name="laser_lambda_short"        value="0.1"/>
     <param name="laser_model_type"          value="likelihood_field"/>
