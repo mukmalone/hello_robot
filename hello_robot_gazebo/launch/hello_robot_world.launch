@@ -24,7 +24,7 @@
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-    args="-x 1.25 -y .8 -urdf -model hello_robot -param /hello_robot/robot_description" />
+    args="-x 1.25 -y .8 -z 0 -urdf -model hello_robot -param /hello_robot/robot_description" />
     
   <!-- include launch file for controllers -->  
   <include file="$(find hello_robot_control)/launch/hello_robot_control.launch" />
