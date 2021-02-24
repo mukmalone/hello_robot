@@ -14,7 +14,7 @@ obstacles:
     topic: hello_robot/scan
     data_type: LaserScan
     sensor_frame: rplidar_gpu_laser_link
-    clearing: false
+    clearing: true
     marking: true
     inf_is_valid: false
     min_obstacle_height: 0.13
