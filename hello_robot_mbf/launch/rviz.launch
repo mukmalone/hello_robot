@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+  <node pkg="rviz" type="rviz" name="rviz" required="true"
+        args="-d $(find hello_robot_mbf)/rviz/hello_robot_mbf.rviz"/>
+</launch>

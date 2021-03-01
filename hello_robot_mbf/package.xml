@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hello_robot_mbf</name>
+  <version>0.0.0</version>
+  <description>The hello_robot_mbf package</description>
+
+  <maintainer email="michael.muldoon.home@gmail.com">michael muldoon</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>
