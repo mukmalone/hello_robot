@@ -4,3 +4,8 @@
    - good setup instructions: https://www.programmersought.com/article/28036756788/
    - usb driver: silicon labs https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
    - slamtec sdk github: https://github.com/Slamtec/rplidar_sdk/releases
+   - ROS related github: https://github.com/slamtec/rplidar_ros
+   - change permissions on serial port to access device.  The following commands updated port settings:
+      - `ls -l /dev | grep ttyUSB0`
+      - output from this command was: `crw-rw---- 1 root  dialout 188, 0 Jan 3 14:59 ttyUSB0`
+      - run following command to change permissions: `sudo chmod 666 /dev/ttyUSB0`
