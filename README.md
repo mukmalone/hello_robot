@@ -56,6 +56,6 @@ Very quick video showing the SLAM and Navigation working.
 
 ![image info](./pictures/robotBase.png)
 
-First drive of the actual robot.
+### First drive of the actual robot ###
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/x3qpu2Kqpcg/0.jpg)](https://youtu.be/x3qpu2Kqpcg "First drive of Hello_Robot")
