@@ -61,3 +61,22 @@ void loop() {
 - On the Arduino IDE menu select Tools->Manage Libraries....
 - Search for the MPU9250 and install `Bolder Flight Systems MPU9250`
 - Under examples look for the folder and select Basic_I2C.  This should validate your MPU is connected properly to the Teensy board.
+
+#### Encoder Calculations ####
+- I rotated the front and rear left wheels 360 degrees, 3 times each and then took the average for the encoder count.  Here is the data:
+
+  - [INFO] [1455208918.384447]: Encoder FrontLeft  : 3996
+  - [INFO] [1617307219.144740]: Encoder FrontLeft  : 2662
+  - Result 1: 1334
+  - [INFO] [1617307542.280087]: Encoder FrontLeft  : 1364
+  - Result 2: 1298
+  - [INFO] [1617307655.408345]: Encoder RearLeft   : 51
+  - Result 3: 1313
+  - [INFO] [1455208918.393122]: Encoder RearLeft   : 4011
+  - [INFO] [1617307219.155708]: Encoder RearLeft   : 2691
+  - Result 4: 1320
+  - [INFO] [1617307542.290093]: Encoder RearLeft   : 1386
+  - Result 5: 1305
+  - [INFO] [1617307655.408345]: Encoder RearLeft   : 51
+  - Result 6: 1335
+  - Average:1317.5 or 1318
