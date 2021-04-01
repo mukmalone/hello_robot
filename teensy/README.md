@@ -62,7 +62,7 @@ void loop() {
 - Search for the MPU9250 and install `Bolder Flight Systems MPU9250`
 - Under examples look for the folder and select Basic_I2C.  This should validate your MPU is connected properly to the Teensy board.
 
-#### Encoder Calculations ####
+### Validating Encoders ###
 - I rotated the front and rear left wheels 360 degrees, 3 times each and then took the average for the encoder count.  Here is the data:
 
   - [INFO] [1455208918.384447]: Encoder FrontLeft  : 3996
@@ -80,3 +80,8 @@ void loop() {
   - [INFO] [1617307655.408345]: Encoder RearLeft   : 51
   - Result 6: 1335
   - Average:1317.5 or 1318
+
+### Validating PID ###
+ - p: 1.0
+ - d: .3
+ - i: .5
