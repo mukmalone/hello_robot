@@ -1,7 +1,9 @@
 <launch>
+    <arg name="node_start_delay" default="15.0" />
+
     <!-- Map server -->
     <arg name="map_file" default="$(find linorobot)/maps/main_floor_map.yaml"/>
-    <node pkg="map_server" name="map_server"  type="map_server" args="$(arg map_file)" />
+    <node pkg="map_server" name="map_server"  type="map_server" args="$(arg map_file)" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " />
 
     <!-- AMCL used for localization -->
     <include file="$(find linorobot)/launch/include/amcl.launch" />

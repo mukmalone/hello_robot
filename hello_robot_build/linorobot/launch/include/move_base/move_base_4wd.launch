@@ -1,5 +1,6 @@
 <launch>
-    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <arg name="node_start_delay" default="15.0" />
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
         <rosparam file="$(find linorobot)/param/navigation/costmap_common_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find linorobot)/param/navigation/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find linorobot)/param/navigation/local_costmap_params.yaml" command="load" />

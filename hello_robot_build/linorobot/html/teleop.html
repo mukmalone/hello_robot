@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<script src="http://static.robotwebtools.org/threejs/current/three.js"></script>
+<script src="http://static.robotwebtools.org/threejs/current/ColladaLoader.js"></script>
+<script src="http://static.robotwebtools.org/threejs/current/STLLoader.js"></script>
+<script src="http://static.robotwebtools.org/ColladaAnimationCompress/current/ColladaLoader2.js"></script>
+<script src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script src="http://static.robotwebtools.org/roslibjs/current/roslib.js"></script>
+<script src="http://static.robotwebtools.org/ros3djs/current/ros3d.min.js"></script>
+
+
+<script>
+  /**
+   * Setup all visualization elements when the page is loaded. 
+   */
+
+
+  //Declaration of variables used in the code
+  var ros;
+  var forward_vel = 0.2;
+  var backward_vel = -0.2;
+
+  var rotate_left_vel = 0.4;
+  var rotate_right_vel = -0.4;
+
+  var zero_vel = 0.0;
+  var teleop_topic = '/cmd_vel';
+  var base_frame = 'odom';
+
+
+  function init() {
+    // Connect to ROS.
+     ros = new ROSLIB.Ros({
+      url : 'ws://192.168.2.26:9090'
+    });
+
+    // Create the main viewer.
+    var viewer = new ROS3D.Viewer({
+      background : '#efefef',
+      divID : 'urdf',
+      width : 1280,
+      height : 600,
+      antialias : true
+
+    });
+
+    // Add a grid.
+    viewer.addObject(new ROS3D.Grid());
+
+    // Setup a client to listen to TFs.
+    var tfClient = new ROSLIB.TFClient({
+      ros : ros,
+      fixedFrame : 'odom',
+      angularThres : 0.01,
+      transThres : 0.01,
+      rate : 10.0
+    });
+
+    // Setup the URDF client.
+    var urdfClient = new ROS3D.UrdfClient({
+      ros : ros,
+      param: 'robot_description',
+      tfClient : tfClient,
+      path : 'https://rosrobots.com/',
+      rootObject : viewer.scene,
+      loader : ROS3D.COLLADA_LOADER
+    });
+  
+
+}
+
+//Command to send Twist message
+
+function send_cmd(linear_vel,angular_vel){
+
+  var cmdVel = new ROSLIB.Topic({
+    ros : ros,
+    name : teleop_topic,
+    messageType : 'geometry_msgs/Twist'
+  });
+
+  var twist = new ROSLIB.Message({
+    linear : {
+      x : linear_vel,
+      y : 0.0,
+      z : 0.0
+    },
+    angular : {
+      x : 0.0,
+      y : 0.0,
+      z : angular_vel
+    }
+  });
+
+
+ cmdVel.publish(twist);
+ 
+}
+
+//Function to handle robot movement
+function move_forward(){
+	send_cmd(forward_vel,zero_vel);
+  	console.log("Move forward");
+}
+
+function move_backward(){
+	send_cmd(backward_vel,zero_vel);
+  	console.log("Move backward");
+}
+function rotate_left(){
+	send_cmd(zero_vel,rotate_left_vel);
+  	console.log("Rotate left");
+}
+
+function rotate_right(){
+	send_cmd(zero_vel,rotate_right_vel);
+  	console.log("Rotate right");
+}
+
+
+function stop(){
+	send_cmd(zero_vel,zero_vel);
+  	console.log("Stop");
+}
+
+function submit_values(){
+  teleop_topic = document.getElementById("tele_topic").value;
+}
+
+
+
+
+</script>
+</head>
+
+<body onload="init()">
+  <h1>Teleoperation of Robot</h1>
+
+<form >
+  Teleop topic:<br>
+  <input type="text" name="Teleop Topic" id='tele_topic' value="/cmd_vel">
+  <br>
+
+ <input type="button" onmousedown="submit_values()" value="Submit"> 
+
+</form> 
+
+
+ <!-- <button onclick="send_cmd()">Move robot</button> -->
+  <input type="button" onmousedown="move_forward()" value="Move Forward" />
+  <input type="button" onmousedown="move_backward()" value="Move Backward" />
+  <input type="button" onmousedown="rotate_left()" value="Rotate Left" />
+  <input type="button" onmousedown="rotate_right()" value="Rotate Right" />
+  <input type="button" onmousedown="stop()" value="Stop" />
+  
+  <div id="urdf"></div>
+</body>
+</html>
