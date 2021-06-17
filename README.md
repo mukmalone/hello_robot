@@ -6,7 +6,7 @@ Below is the picture of the base that I will be building the URDF for.  The goal
 - roughly model the base and attach ROS controllers to the wheel so it can be driven in gazebo
 - add a laser sensor to the simulation 
 
-The actual robot will have a RPLIDAR A1 laser senor and mecancum wheels.
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/sEv-iHaviXk/0.jpg)](https://youtu.be/sEv-iHaviXk "hello_robot home service full stack demonstration")
 
 ## Key concepts covered ##
 - creating a URDF from scratch
