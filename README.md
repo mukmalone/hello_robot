@@ -1,5 +1,7 @@
 # hello_robot Xacro and URDF #
 
+![image info](./pictures/4.png)
+
 This repository hosts the source code for the ROS < hello_robot > package which builds the model for my first robot.
 
 Below is the picture of the base that I will be building the URDF for.  The goals of this repository are:
