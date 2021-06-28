@@ -1,5 +1,7 @@
 # hello_robot Xacro and URDF #
 
+My project was fortunate to be selected for recognition during my coursework with [Lentin Joesph](https://www.linkedin.com/in/lentinjoseph/).  You can check out his great course and books here: https://robocademy.com/
+
 ![image info](./pictures/4.png)
 
 This repository hosts the source code for the ROS < hello_robot > package which builds the model for my first robot.
