@@ -11,8 +11,8 @@
   <xacro:property name="sensor_yaml" value="$(find ${package_name})/config/sensors.yaml" />
   <xacro:property name="sensor_prop" value="${load_yaml(sensor_yaml)}"/>
 
-  <xacro:property name="baselen" value="0.260" />
-  <xacro:property name="basewidth" value="0.152" />
+  <xacro:property name="baselen" value="0.3" />
+  <xacro:property name="basewidth" value="0.33" />
   <xacro:property name="basethick" value="0.003" />
   <xacro:property name="wheeldiam" value="0.056" />
   <xacro:property name="wheelwidth" value="0.038" />
@@ -33,13 +33,16 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <box size="${baselen} ${basewidth} ${basethick}" />
+      <mesh
+          filename="package://hospi_bot/meshes/base_link.STL" />
+
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <geometry>
-        <box size="${baselen*collision_inflation} ${basewidth*collision_inflation} ${basethick*collision_inflation}" />
+        <mesh
+          filename="package://hospi_bot/meshes/base_link.STL" />
       </geometry>
     </collision>
     <xacro:base_inertia m="1.065" 

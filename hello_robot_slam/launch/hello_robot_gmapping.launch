@@ -18,4 +18,7 @@
     <!-- remappings -->
     <remap from="scan" to="$(arg scan_topic)"/>
   </node>
+  
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find hello_robot_slam)/rviz/mapps.rviz" output="screen"/>
+
 </launch>
